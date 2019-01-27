@@ -60,8 +60,16 @@ def annotate(
 def append_subtitle(conf, subtitles):
     try:
         video = editor.VideoFileClip(conf['data']['video'])
-        annotated_clips = [annotate(video.subclip(from_t, to_t), txt, conf['subtitle-conf']['txt_color'])
-                           for (from_t, to_t), txt in subtitles]
+        annotated_clips = [annotate(
+            video.subclip(from_t, to_t),
+            txt,
+            conf['subtitle-conf']['txt_color'],
+            conf['subtitle-conf']['fontsize'],
+            conf['subtitle-conf']['font'],
+            conf['subtitle-conf']['position'][0],
+            conf['subtitle-conf']['position'][1])
+            for (from_t, to_t), txt in subtitles]
+
         final_clip = editor.concatenate_videoclips(annotated_clips)
         final_clip.write_videofile(conf['data']['output'])
     except Exception as e:
