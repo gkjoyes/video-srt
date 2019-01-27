@@ -1,0 +1,10 @@
+[data]
+video = "/home/kutty/work/python/video-srt/data/amazing-birds.mp4"
+subtitle = "data/subtitle.csv"
+output = "/home/kutty/work/python/video-srt/data/output.mp4"
+
+[subtitle-conf]
+txt_color="white"
+fontsize=20
+font=""
+position=['center','bottom']
